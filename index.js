@@ -6,7 +6,10 @@ async function fetchData() {
         const data = JSON.parse(rawData)
 
         // Tweets:
-        console.log(data.data.user.result['timeline_v2'].timeline.instructions[2].entries)
+        const tweets = data.data.user.result['timeline_v2'].timeline.instructions[2].entries
+        const lastTweet = tweets[0]
+
+        console.log(lastTweet.content.itemContent['tweet_results'].result.legacy['full_text']) // The PRO™ move here would be to do it with CSS alone
 
     } catch (error) {
         console.error('Error al leer el archivo:', error)
